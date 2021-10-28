@@ -13,38 +13,57 @@ const router = express.Router()
 // Router Middleware
 ///////////////////////////////
 // middleware to check if user is logged in
-// router.use((req, res, next) => {
-//     // check if logged in
-//     if (req.session.loggedIn){
-//         // send to routes
-//         next()
-//     } else {
-//         res.redirect("/user/login")
-//     }
-// })
+router.use((req, res, next) => {
+    // check if logged in
+    if (req.session.loggedIn){
+        // send to routes
+        next()
+    } else {
+        res.redirect("/user/login")
+    }
+})
 
 ////////////////////////////////////////////
 // Gifts Routes
 ////////////////////////////////////////////
 
-// //seed route - seed our starter data
-// router.get("/seed", (req, res) => {
-//     // array of starter gifts
-//     // const startGifts = [
-//     //     { name: "Orange", color: "orange", readyToEat: false },
-//     //     { name: "Grape", color: "purple", readyToEat: false }
-//     //   ];
-
-//     // delete all gifts
-//     Gift.deleteMany({}).then((data) => {
-//         // seed the starter gifts
-//         Gift.create(startGifts)
-//         .then((data) => {
-//             // send created gifts back as JSON
-//             res.json(data)
-//         })
-//     })
-// })
+//seed route - seed our starter data
+router.get("/seed", (req, res) => {
+    // array of starter gifts
+    const startGifts = [
+        {
+          giftName: 'Beans',
+          recipient: 'Mom',
+          price: 5,
+          img: 'https://imgur.com/LEHS8h3.png',
+          whereToBuy: 'Amazon',
+          isWrapped: true
+        }, {
+          giftName: 'Bones',
+          recipient: 'Dad',
+          price: 25,
+          img: 'https://imgur.com/dalOqwk.png',
+          whereToBuy: 'Macys',
+          isWrapped: false
+        }, {
+          giftName: 'Bins',
+          recipient: 'Son',
+          price: 200,
+          img: 'https://imgur.com/ptWDPO1.png',
+          whereToBuy: 'Container Store',
+          isWrapped: false
+        }
+    ]
+    // delete all gifts
+    Gift.deleteMany({}).then((data) => {
+        // seed the starter gifts
+        Gift.create(startGifts)
+        .then((data) => {
+            // send created gifts back as JSON
+            res.json(data)
+        })
+    })
+})
 
 //////////////////////////////////////////
 // Index route - get request - /gifts
@@ -72,7 +91,7 @@ router.get("/new", (req, res) => {
 //////////////////////////////////////////
 // Create route - post request - /gifts
 router.post("/", (req, res) => {
-    // create the new product
+    // create the new gift
     Gift.create(req.body)
     .then((gift) => {
         // redirect the user back to the index route
