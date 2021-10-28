@@ -30,7 +30,7 @@ const app = liquid(express(), {root: viewsFolder})
 app.use(morgan("tiny"))
 // ability to override request methods
 app.use(methodOverride("_method"))
-// ability to parse urlencoded from for submission
+// ability to parse urlencoded form for submission
 app.use(express.urlencoded({extended: true}))
 // setup our public folder to serve files statically
 app.use(express.static("public"))
@@ -47,7 +47,7 @@ app.use(session({
 ////////////////////////////////////
 
 app.get("/", (req, res) => {
-    res.send("This App is working")  // change this line after adding sessions
+    res.render("index.liquid")
 })
 
 // Register Gifts Router
@@ -61,5 +61,5 @@ app.use("/user", UserRouter)
 /////////////////////////////////////////////
 // Setup Server Listener
 /////////////////////////////////////////////
-const PORT = process.env.PORT || 3000 // grabbing the port number from env
+const PORT = process.env.PORT 
 app.listen(PORT, console.log(`listening on port ${PORT}`))
