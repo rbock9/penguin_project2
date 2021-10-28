@@ -1,6 +1,35 @@
 {% layout "layout.liquid" %}
 {% block content %}
 
-<h2>Show Gift Page goes here</h2>
+<div class="show-page-card">
+    <h2>{{ gift.giftName }}</h2>
+    <img src="{{gift.img}}" />
+
+    <div class="show-page-card-info">
+        <p>To: {{ gift.recipient }}</p>
+        <p>Price: ${{ gift.price }}</p>
+        <p>Where to buy: {{ gift.whereToBuy }}</p>
+        <p>
+        {% if gift.isWrapped == true %}
+             Already wrapped
+        {% else %}
+            Not yet wrapped
+        {% endif %}
+        </p>
+    </div>
+
+    <div class="show-page-card-buttons">
+
+        <a href="/gifts/{{ gift._id }}/edit"><button>Edit Gift</button></a>
+        <form action="/gifts/{{ gift._id }}?_method=DELETE" method="post">
+        <input type="submit" value="Delete Gift">
+        </form>
+    </div>
+
+</div>
+
+<div class="show-page-bottom">
+    <a href="/gifts"><button>Back to Main</button></a>
+</div>
 
 {% endblock %}
