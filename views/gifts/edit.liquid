@@ -1,6 +1,43 @@
 {% layout "layout.liquid" %}
 {% block content %}
 
-<h2>Edit Gift Page goes here</h2>
+<div>
+
+    <form action="/gifts/{{ gift._id }}?_method=PUT" method="post">
+     <fieldset>
+       <legend>Edit {{ gift.giftName }}</legend>
+
+           <label>
+               Gift: <input type="text" name="giftName" placeholder="enter gift name" value="{{gift.giftName}}"/>
+           </label><br>
+
+           <label>
+               Recipient: <input type="text" name="recipient" placeholder="enter recipient name" value="{{gift.recipient}}"/>
+           </label><br>
+
+           <label>
+            Price: <input type="number" name="price" placeholder="enter gift price" value="{{gift.price}}"/>
+            </label><br>
+
+            <label>
+                Gift Image URL: <input type="text" name="img" placeholder="enter image url link" value="{{gift.img}}"/>
+            </label><br>
+
+            <label>
+                Where To Buy: <input type="text" name="whereToBuy" placeholder="enter where to buy" value="{{gift.whereToBuy}}"/>
+            </label><br>
+
+           <label>
+               Is Wrapped: <input type="checkbox" name="isWrapped"
+               {% if gift.isWrapped == true %}
+               checked
+               {% endif %}
+               >
+           </label>
+       </fieldset>
+       <input type="submit" value="update {{gift.giftName}}"/>
+    </form>
+   
+   </div>
 
 {% endblock %}

@@ -1,6 +1,41 @@
 {% layout "layout.liquid" %}
 {% block content %}
 
-<h2>Edit Gift Page goes here</h2>
+<div>
+
+    <form action="/gifts" method="post">
+     <fieldset>
+       <legend>Create a New Gift</legend>
+           <label>
+               Gift Name: <input type="text" name="giftName" placeholder="enter gift name"/>
+           </label><br>
+
+           <label>
+               Recipient: <input type="text" name="recipient" placeholder="enter gift recipient"/>
+           </label><br>
+
+           <label>
+                Price: <input type="number" name="price" placeholder="enter gift price"/>
+            </label><br>
+
+           <label>
+               Image URL Link: <input type="text" name="img" placeholder="enter image url link"/>
+           </label><br>
+
+           <label>
+                Where to Buy: <input type="text" name="whereToBuy" placeholder="enter where to buy"/>
+            </label><br>
+
+            <label>
+                Is Already Wrapped: <input type="checkbox" name="isWrapped"/>
+            </label>
+
+       </fieldset>
+       <br>
+       <input type="submit" value="Create New Gift"/>
+    </form>
+    
+   </div>
+<a href="/gifts"><button>Back to Main</button></a>
 
 {% endblock %}

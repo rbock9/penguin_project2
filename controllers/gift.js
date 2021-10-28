@@ -69,7 +69,7 @@ router.get("/seed", (req, res) => {
 // Index route - get request - /gifts
 router.get("/", (req, res) => {
     //find all the gifts
-    Gift.find({})
+    Gift.find({username: req.session.username})
     .then((gifts) => {
         // render the index template with the gifts
         res.render("gifts/index.liquid", {gifts})
@@ -79,7 +79,6 @@ router.get("/", (req, res) => {
         res.json({error})
     })
 })
-
 
 //////////////////////////////////////////
 // New route - get request - /gifts/new
@@ -91,6 +90,13 @@ router.get("/new", (req, res) => {
 //////////////////////////////////////////
 // Create route - post request - /gifts
 router.post("/", (req, res) => {
+
+    // convert the checkbox property to true or false
+    req.body.isWrapped = req.body.isWrapped === "on" ? true : false
+
+    // add the username to req.body, to track user
+    req.body.username = req.session.username
+
     // create the new gift
     Gift.create(req.body)
     .then((gift) => {
@@ -127,6 +133,9 @@ router.get("/:id/edit", (req, res) => {
 router.put("/:id", (req, res) => {
     // get the id from params
     const id = req.params.id
+
+    // convert the checkbox property to true or false
+    req.body.isWrapped = req.body.isWrapped === "on" ? true : false
     
     // update the item with the matching id
     Gift.findByIdAndUpdate(id, req.body, {new: true})
