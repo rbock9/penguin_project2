@@ -7,9 +7,9 @@ const morgan = require("morgan") // logger
 const methodOverride = require("method-override") // to swap request methods
 const path = require("path") // helper functions for file paths
 const GiftsRouter = require("./controllers/gift") // router for gifts routes
-// const UserRouter = require("./controllers/user") // router for user routes
-// const session = require("express-session") // session middleware
-// const MongoStore = require("connect-mongo") // save sessions in mongo
+const UserRouter = require("./controllers/user") // router for user routes
+const session = require("express-session") // session middleware
+const MongoStore = require("connect-mongo") // save sessions in mongo
 
 ////////////////////////////////////
 // App Object
@@ -34,12 +34,12 @@ app.use(methodOverride("_method"))
 app.use(express.urlencoded({extended: true}))
 // setup our public folder to serve files statically
 app.use(express.static("public"))
-// // middleware to create sessions (req.session)
-// app.use(session({
-//     secret: process.env.SECRET,
-//     store: MongoStore.create({mongoUrl: process.env.DATABASE_URL}),
-//     resave: false
-// }))
+// middleware to create sessions (req.session)
+app.use(session({
+    secret: process.env.SECRET,
+    store: MongoStore.create({mongoUrl: process.env.DATABASE_URL}),
+    resave: false
+}))
 
 
 ////////////////////////////////////
@@ -53,8 +53,8 @@ app.get("/", (req, res) => {
 // Register Gifts Router
 app.use("/gifts", GiftsRouter)
 
-// // Register User Router
-// app.use("/user", UserRouter)
+// Register User Router
+app.use("/user", UserRouter)
 
 
 
