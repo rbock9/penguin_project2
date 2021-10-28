@@ -37,6 +37,7 @@ router.get("/seed", (req, res) => {
           price: 5,
           img: 'https://imgur.com/LEHS8h3.png',
           whereToBuy: 'Amazon',
+          isBought: true,
           isWrapped: true
         }, {
           giftName: 'Bones',
@@ -44,6 +45,7 @@ router.get("/seed", (req, res) => {
           price: 25,
           img: 'https://imgur.com/dalOqwk.png',
           whereToBuy: 'Macys',
+          isBought: false,
           isWrapped: false
         }, {
           giftName: 'Bins',
@@ -51,6 +53,7 @@ router.get("/seed", (req, res) => {
           price: 200,
           img: 'https://imgur.com/ptWDPO1.png',
           whereToBuy: 'Container Store',
+          isBought: false,
           isWrapped: false
         }
     ]
@@ -91,7 +94,8 @@ router.get("/new", (req, res) => {
 // Create route - post request - /gifts
 router.post("/", (req, res) => {
 
-    // convert the checkbox property to true or false
+    // convert the checkbox properties to true or false
+    req.body.isBought = req.body.isBought === "on" ? true : false
     req.body.isWrapped = req.body.isWrapped === "on" ? true : false
 
     // add the username to req.body, to track user
@@ -134,7 +138,8 @@ router.put("/:id", (req, res) => {
     // get the id from params
     const id = req.params.id
 
-    // convert the checkbox property to true or false
+    // convert the checkbox properties to true or false
+    req.body.isBought = req.body.isBought === "on" ? true : false
     req.body.isWrapped = req.body.isWrapped === "on" ? true : false
     
     // update the item with the matching id

@@ -27,15 +27,23 @@
                 Where To Buy: <input type="text" name="whereToBuy" placeholder="enter where to buy" value="{{gift.whereToBuy}}"/>
             </label><br>
 
+            <label>
+                Has Been Bought: <input type="checkbox" name="isBought"
+                {% if gift.isBought == true %}
+                checked
+                {% endif %}
+                >
+            </label>
+
            <label>
-               Is Wrapped: <input type="checkbox" name="isWrapped"
+               Has Been Wrapped: <input type="checkbox" name="isWrapped"
                {% if gift.isWrapped == true %}
                checked
                {% endif %}
                >
            </label>
        </fieldset>
-       <input type="submit" value="update {{gift.giftName}}"/>
+       <input type="submit" value="Update {{gift.giftName}}"/>
     </form>
    
    </div>

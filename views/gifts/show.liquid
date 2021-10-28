@@ -10,6 +10,13 @@
         <p>Price: ${{ gift.price }}</p>
         <p>Where to buy: {{ gift.whereToBuy }}</p>
         <p>
+            {% if gift.isBought == true %}
+                 Already bought
+            {% else %}
+                Not yet bought
+            {% endif %}
+            </p>
+        <p>
         {% if gift.isWrapped == true %}
              Already wrapped
         {% else %}

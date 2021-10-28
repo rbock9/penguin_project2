@@ -17,6 +17,7 @@ const giftSchema = new Schema({
     price: { type: Number, min: 0 },
     img: String,
     whereToBuy: String,
+    isBought: Boolean,
     isWrapped: Boolean,
     username: String
 })

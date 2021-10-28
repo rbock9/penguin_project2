@@ -21,6 +21,7 @@ db.on("open", () => {
           price: 5,
           img: 'https://imgur.com/LEHS8h3.png',
           whereToBuy: 'Amazon',
+          isBought: true,
           isWrapped: true
         }, {
           giftName: 'Bones',
@@ -28,6 +29,7 @@ db.on("open", () => {
           price: 25,
           img: 'https://imgur.com/dalOqwk.png',
           whereToBuy: 'Macys',
+          isBought: false,
           isWrapped: false
         }, {
           giftName: 'Bins',
@@ -35,6 +37,7 @@ db.on("open", () => {
           price: 200,
           img: 'https://imgur.com/ptWDPO1.png',
           whereToBuy: 'Container Store',
+          isBought: false,
           isWrapped: false
         }
     ]
