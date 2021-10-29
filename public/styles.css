@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+}
+
+/* for full-size screens */
+body {
+    background-image: url('/assets/markus-spiske-5jeRBN4-ZLE-unsplash.jpg');
+    background-color: ghostwhite; 
+    height: 100%; 
+    background-position: center; 
+    background-repeat: repeat; 
+    background-size: cover; 
+    font-family: 'Libre Baskerville'
+}
+
+img {
+    width: 20%;
+    height: 20%;
+}
+
+form {
+    width: 50%;
+}
+
+/* unvisited link */
+a:link {
+    color: green;
+}
+  
+/* visited link */
+a:visited {
+    color: darkgreen;
+}
+  
+/* mouse over link */
+a:hover {
+    color: red;
+    transition-duration: .3s;
+}
+  
+/* selected link */
+a:active {
+    color: blue;
+}
+
+button {
+    margin-right: .5em;
+    margin-top: .5em;
+}
+
+h1 {
+    color: black;
+    text-shadow: 2px 2px 4px gray;
+    width: 60%;
+    font-family: 'Libre Baskerville';
+    border-bottom: 1px solid goldenrod;
+}
+
+a {
+    font-family: 'Dancing Script';
+}
+
+.show-page-card-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-bottom: 1em;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    color: black;
+    /* text-align: center; */
+    background-color: ghostwhite;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid goldenrod;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* for small screens */
+@media only screen and (max-width: 600px) {
+    body {
+        background-image: url('/assets/christmas-background-christmas-tree-seamless.jpg');
+        background-color: ghostwhite;
+        height: 100%; 
+        background-position: center; 
+        background-repeat: repeat; 
+        background-size: cover; 
+        color: white;
+        text-shadow: 0 0 3px #FF0000;
+    }
+
+    h1 {
+        color: white;
+        text-shadow: 0 0 3px #FF0000;
+        width: 100%
+      }
+
+    form {
+        width: 100%;
+    }
+
+    /* unvisited link */
+    a:link {
+        color: white;
+    }
+  
+    /* visited link */
+    a:visited {
+        color: lightgray;
+    }
+  
+    /* mouse over link */
+    a:hover {
+        color: lightgreen;
+    }
+  
+    /* selected link */
+    a:active {
+        color: red;
+    }
+}
+
+
+footer {
+    font-family: 'Libre Baskerville';
+    position: static;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    margin-top: 2em;
+    padding-top: .5em;
+    font-size: smaller;
+}
