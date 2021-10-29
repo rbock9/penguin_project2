@@ -43,10 +43,10 @@ a:active {
     color: blue;
 }
 
-button {
+/* button {
     margin-right: .5em;
     margin-top: .5em;
-}
+} */
 
 h1 {
     color: black;
@@ -56,8 +56,21 @@ h1 {
     border-bottom: 1px solid goldenrod;
 }
 
+h2 {
+    color: black;
+    text-shadow: 2px 2px 4px gray;
+    width: 60%;
+    font-family: 'Libre Baskerville';
+}
+
 a {
     font-family: 'Dancing Script';
+}
+
+ul {
+    font-size: 1.5em;
+    /* list-style-type: "\1F381"; */
+    /* list-style: none; */
 }
 
 .show-page-card-buttons {
@@ -91,7 +104,7 @@ a {
     border: 1px solid goldenrod;
     width: 80%; /* Could be more or less, depending on screen size */
   }
-  
+
   /* The Close Button */
   .close {
     color: #aaa;
@@ -121,7 +134,7 @@ a {
         text-shadow: 0 0 3px #FF0000;
     }
 
-    h1 {
+    h1, h2 {
         color: white;
         text-shadow: 0 0 3px #FF0000;
         width: 100%

@@ -63,11 +63,13 @@ router.post("/login", async (req, res) => {
             res.redirect("/gifts");
           } else {
             // send error of wrong password
-            res.json({ error: "password doesn't match" });
+            // res.json({ error: "password doesn't match" });
+            res.render("user/incpass.liquid")
           }
         } else {
           //send error that user doesn't exist
-          res.json({ error: "user doesn't exist" });
+          // res.json({ error: "user doesn't exist" });
+          res.render("user/incuname.liquid")
         }
       })
       // error handling

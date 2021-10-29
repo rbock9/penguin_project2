@@ -5,9 +5,11 @@
 
 {% for gift in gifts %}
 <article>
-    <h2>
+    <ul>
+    <li>
         <a href="/gifts/{{ gift._id }}">{{gift.giftName}} </a>
-    </h2>
+    </li>
+    </ul>
 </article>
 {% endfor %}
 
