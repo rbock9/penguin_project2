@@ -1,7 +1,7 @@
 {% layout "layout.liquid" %}
 {% block content %}
 
-<h2>My List</h2>
+<h2>My List:</h2>
 
 {% for gift in gifts %}
 <article>
@@ -17,6 +17,7 @@
 <div class="page-bottom">
     <a href="/gifts/new"><button>Create a New Gift</button></a>
 </div>
-
+<br>
+<a href="/user/logout"><button>Logout</button></a>
 
 {% endblock %}
